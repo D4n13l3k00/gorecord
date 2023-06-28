@@ -1,6 +1,6 @@
 # GoRecord
 
-## 📻 Radio record client written in Go
+## 📻 Radio Record client written in Go
 
 [![asciicast](https://asciinema.org/a/6toERrna0jtqILxxJyiB94Ynx.svg)](https://asciinema.org/a/6toERrna0jtqILxxJyiB94Ynx)
 
@@ -9,16 +9,16 @@ Require mpv for work
 Require font-awesome for icons
 ```
 
-### Features
+### 📌 Features
 
-- Dynamic get all station via API
+- Dynamic get all stations via API
 - Now playing title
 - "Fully" portable binary (install only mpv)
 
-### Usage
+### 🕹 Usage
 
 `h/j/k/l` or `arrows` for navigate
 
-`Ctrl+C` for exit/reselect station
+`Ctrl+C` for exit / reselect station
 
 ### ✍️ License: [MIT](/LICENSE)
