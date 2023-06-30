@@ -28,7 +28,8 @@ var select_style = &promptui.SelectTemplates{
 
 func main() {
 	if !checkMPV() {
-		color.Red("MPV is not installed!")
+		color.Red(" MPV is not installed!")
+		color.Yellow("Install MPV via your package manager or build manually")
 		os.Exit(1)
 	}
 
