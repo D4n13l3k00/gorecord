@@ -46,6 +46,7 @@ func main() {
 	stations_titles := []string{}
 	stations_links := []string{}
 	for {
+		PrintBanner()
 		for _, v := range api.CachedResult.Result.Stations {
 			stations_titles = append(stations_titles, v.Title)
 			stations_links = append(stations_links, v.Stream320)

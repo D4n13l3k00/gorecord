@@ -13,9 +13,6 @@ func checkMPV() bool {
 	}
 
 	version := strings.Split(string(output), "\n")[0]
-	if strings.Contains(version, "mpv") {
-		return true
-	}
 
-	return false
+	return strings.Contains(version, "mpv")
 }
