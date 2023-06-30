@@ -2,17 +2,18 @@
 
 ## 📻 Radio Record client written in Go
 
-[![asciicast](https://asciinema.org/a/6toERrna0jtqILxxJyiB94Ynx.svg)](https://asciinema.org/a/6toERrna0jtqILxxJyiB94Ynx)
+[![asciicast](https://asciinema.org/a/BIeJGIU2W6aEUwCz3vZfKdCje.svg)](https://asciinema.org/a/BIeJGIU2W6aEUwCz3vZfKdCje)
 
 ```text
 Require mpv for work
-Require font-awesome for icons
+Require font-awesome or nerd-font for icons
 ```
 
 ### 📌 Features
 
 - Dynamic get all stations via API
-- Now playing title
+- Search station in selection by pressing `/`
+- Now playing title (and animations like on tape machine)
 - "Fully" portable binary (install only mpv)
 
 ### 🕹 Usage

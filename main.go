@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"os/signal"
 	"regexp"
+	"strings"
 	"syscall"
 	"time"
 
@@ -54,6 +56,13 @@ func main() {
 			Items:     stations_titles,
 			Templates: select_style,
 			Size:      10,
+			Searcher: func(input string, index int) bool {
+				pepper := stations_titles[index]
+				name := strings.Replace(strings.ToLower(pepper), " ", "", -1)
+				input = strings.Replace(strings.ToLower(input), " ", "", -1)
+
+				return strings.Contains(name, input)
+			},
 		}
 		index, _, err := prompt.Run()
 		if err != nil {
@@ -111,7 +120,6 @@ func PlayStation(url string) {
 	is_stopped := false
 	for scanner.Scan() {
 		m := scanner.Text()
-		// fmt.Println(m)
 		r := regexp.MustCompile(`icy-title: (.*)`)
 		if r.MatchString(m) {
 			if !is_stopped {
@@ -120,7 +128,12 @@ func PlayStation(url string) {
 			}
 
 			title := r.FindStringSubmatch(m)[1]
-			SetTitle(title)
+			temp_title := ""
+			for _, v := range title {
+				temp_title = fmt.Sprintf("%s%c", temp_title, v)
+				SetTitle(temp_title)
+				time.Sleep(time.Millisecond * 100)
+			}
 		}
 	}
 	cmd.Wait()
