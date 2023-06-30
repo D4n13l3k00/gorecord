@@ -99,7 +99,6 @@ func PlayStation(url string) {
 		cmd.Process.Kill()
 	}()
 	stdout, _ := cmd.StdoutPipe()
-	// _, _ = cmd.StderrPipe()
 	cmd.Start()
 	stop_animation := make(chan bool)
 	go func() {
