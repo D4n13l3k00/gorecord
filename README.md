@@ -2,7 +2,7 @@
 
 ## 📻 Radio Record client written in Go
 
-[![asciicast](https://asciinema.org/a/BIeJGIU2W6aEUwCz3vZfKdCje.svg)](https://asciinema.org/a/BIeJGIU2W6aEUwCz3vZfKdCje)
+[![asciicast](https://asciinema.org/a/7wS0oEeipdGIDEfOc2ouQrN5U.svg)](https://asciinema.org/a/7wS0oEeipdGIDEfOc2ouQrN5U)
 
 ```text
 Require mpv for work
