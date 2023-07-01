@@ -17,15 +17,6 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
-var s *spinner.Spinner
-
-var select_style = &promptui.SelectTemplates{
-	Active:   ` {{ . | cyan | bold }}`,
-	Inactive: `   {{ . | cyan }}`,
-	Selected: `{{ "✔" | green | bold }} {{ "Playing station" | bold }} {{ . | cyan }}`,
-	Label:    `{{ . | bold }}`,
-}
-
 func main() {
 	if !checkMPV() {
 		color.Red(" MPV is not installed!")

@@ -5,12 +5,23 @@ import (
 	"os/exec"
 	"runtime"
 
+	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
+	"github.com/manifoldco/promptui"
 )
 
 var version string = "v-_-_-"
 var commit string = "v-_-_-"
+
 var clear map[string]func()
+
+var s *spinner.Spinner
+var select_style = &promptui.SelectTemplates{
+	Active:   ` {{ . | cyan | bold }}`,
+	Inactive: `   {{ . | cyan }}`,
+	Selected: `{{ "✔" | green | bold }} {{ "Playing station" | bold }} {{ . | cyan }}`,
+	Label:    `{{ . | bold }}`,
+}
 
 func init() {
 	clear = make(map[string]func())
