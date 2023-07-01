@@ -93,19 +93,20 @@ func PlayStation(url string) {
 	stdout, _ := cmd.StdoutPipe()
 	cmd.Start()
 	stop_animation := make(chan bool)
-	go func() {
+	animation := func() {
 		for {
 			select {
 			case <-stop_animation:
 				return
 			default:
-				SetTitle("_-_-_-_")
+				SetTitle("_-_-_-_-_-_")
 				time.Sleep(time.Millisecond * 250)
-				SetTitle("-_-_-_-")
+				SetTitle("-_-_-_-_-_-")
 				time.Sleep(time.Millisecond * 250)
 			}
 		}
-	}()
+	}
+	go animation()
 	scanner := bufio.NewScanner(stdout)
 	scanner.Split(bufio.ScanLines)
 	s.Start()
@@ -120,12 +121,25 @@ func PlayStation(url string) {
 			}
 
 			title := r.FindStringSubmatch(m)[1]
-			temp_title := ""
-			for _, v := range title {
-				temp_title = fmt.Sprintf("%s%c", temp_title, v)
+			if title == " - " {
+				go animation()
+				time.Sleep(time.Second * 2)
+				stop_animation <- true
+			} else {
+				temp_title := ""
+				for i, v := range title {
+					temp_title = fmt.Sprintf("%s%c", temp_title, v)
+					if i%2 == 0 {
+						SetTitle(temp_title)
+					} else {
+						SetTitle(temp_title + "_")
+					}
+
+					time.Sleep(time.Millisecond * 100)
+				}
 				SetTitle(temp_title)
-				time.Sleep(time.Millisecond * 100)
 			}
+
 		}
 	}
 	cmd.Wait()
